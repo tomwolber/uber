@@ -2,6 +2,20 @@
 
 View it here (mobile friendly) http://uber-sf-movies.herokuapp.com/
 
+## Run it
+
+- Install Node.js
+- install Grunt globally `npm install -g grunt-cli`
+- install Bower globally `npm install -g bower`
+- Clone this repo.
+- `npm install`
+- `bower install`
+
+That's it!
+
+Run tests:
+
+`grunt test`
 
 ### The goal:
 Create a service that shows on a map where movies have been filmed in San Francisco. The user should be able to filter the view using autocompletion search.
@@ -41,6 +55,8 @@ Smaller libraries used:
 #### Trade-offs
 
 Since there isn't a backend and rate limits on the geocoding API, rendering pins the first time for a movie is a little slow. If I had more time I would spin up a Node.js server with a cronjob that hits the movies API, adds geolocating data, and saves the whole thing to a MongoDB document. There are also a few bugs to work out.
+
+TESTING! I took me so long to get the tests suite set up that I only wrote 1 test, but hopefully you can see the intention there.
 
 Mobile devices are supported, but both the desktop and mobile UI's need to be polished
 
