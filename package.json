@@ -69,7 +69,7 @@
     }
   },
   "dependencies": {
-    "express": "^4.13.3",
+    "express": "~3.0.0",
     "gzippo": "^0.2.0"
   }
 }
