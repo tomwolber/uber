@@ -1,0 +1,244 @@
+// bower:scss
+// endbower
+* { box-sizing: border-box };
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+@font-face {
+  font-family: icomoon;
+  src: url(/fonts/icomoon.eot);
+  src: url(/fonts/icomoon.eot?#iefix) format('embedded-opentype'),
+       url(/fonts/icomoon.woff) format('woff'),
+       url(/fonts/icomoon.ttf) format('truetype'),
+       url(/fonts/icomoon.svg#icomoon) format('svg');
+  font-weight: 400;
+  font-style: normal
+}
+#mobile-menu {
+  position:absolute;
+  top:20px;
+  left:20px;
+  z-index:1;
+  .icon-menu {
+    display: inline-block;
+    padding: 25px 70px 25px 10px;
+    position: absolute;
+    top: -22px;
+    font-size: 18px;
+    line-height: 9px;
+    left:-15px;
+    &.icon-menu:before {
+      content: "\e00f";
+    }
+  }
+}
+
+#mobile-header {
+  display: none;
+  width: 100%;
+  height: 60px;
+  background: transparent url(https://d1a3f4spazzrp4.cloudfront.net/web-fresh/global/logo-web-light@1x.png) no-repeat left top;
+  background-size: 167px;
+  background-color: black;
+  background-position: center  10px;
+  border: 0;
+  overflow: hidden;
+  text-shadow: none;
+  margin:0 auto;
+  position: relative;
+  padding-top:38px;
+  font-family: ff-clan-web-pro-wide,sans-serif;
+  top:0px;
+  font-size:12px;
+  text-align: center;
+  z-index:1;
+  color:white;
+}
+.icon-menu {
+  font-family: icomoon;
+  speak: none;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  color:white;
+  z-index:5;
+}
+
+
+body {
+  background: #fafafa;
+  font-family: ff-clan-web-pro-wide, sans-serif;
+  color: #333;
+  padding:0;
+  margin:0;
+}
+
+#header {
+  width: 100%;
+  padding: 20px 20px 20px 20px;
+  position: absolute;
+  top: 0;
+  z-index: 90;
+  line-height: 10px;
+  color: #fff;
+  background-color: rgba(0,0,0,.7);
+  border-bottom: 1px solid #adadad;
+  box-shadow: inset 0px 0px 91px #000;
+  a {
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    top: 18px;
+    z-index:100;
+    left:300px;
+    transition: all 0.1s ease-out;
+    &.slide {
+      left: 500px;
+    };
+    .menu-text {
+      padding-left: 38px;
+      font-family: ff-clan-web-pro-wide,sans-serif;
+      font-weight: 400;
+    }
+    .icon-menu {
+      display: inline-block;
+      padding: 25px 70px 25px 10px;
+      position: absolute;
+      top: -22px;
+      font-size: 18px;
+      line-height: 9px;
+      &.icon-menu:before {
+        content: "\e00f";
+      }
+    }
+  }
+}
+
+#container {
+  background-color:black;
+  position:fixed;
+  top: 0;
+  bottom: 0;
+  width:100%;
+  left:250px;
+}
+
+#menu {
+  width:250px;
+  background-color:black;
+  position:fixed;
+  top: 0;
+  bottom: 0;
+  left: 0px;
+  color:white;
+  z-index:3;
+  transition: all 0.1s ease-out;
+  &.slide {
+    left: 0px;
+  };
+  #logo {
+    width: 200px;
+    height: 60px;
+    background: transparent url(https://d1a3f4spazzrp4.cloudfront.net/web-fresh/global/logo-web-light@1x.png) no-repeat left top;
+    background-size: 167px;
+    background-color: transparent;
+    background-position: center top;
+    border: 0;
+    overflow: hidden;
+    text-shadow: none;
+    margin:0 auto;
+    position: relative;
+    padding-top:30px;
+    font-family: ff-clan-web-pro-wide,sans-serif;
+    top:20px;
+    font-size:12px;
+    text-align: center;
+  }
+  ul {
+    list-style-type:none;
+    font-size:14px;
+    padding: 0px 0 0 20px;
+    overflow:scroll;
+    position:absolute;
+    top:128px;
+    bottom:0px;
+    .no-match {
+      color: red;
+    }
+    li {
+      line-height:30px;
+      a {
+        color:white;
+        text-decoration:none;
+        &:hover {
+          color:#1fbad6;
+        }
+        &:active {
+          color:#1fbad6;
+        }
+      }
+    }
+  }
+  #filter {
+    font-family: ff-clan-web-pro-wide,sans-serif;
+    width: 210px;
+    margin: 20px;
+    padding:10px;
+    font-size:12px;
+    color: white;
+    border: 2px solid #1fbad6;
+    background: transparent;
+    position:absolute;
+    z-index:1;
+    height:41px;
+    top: 72px;
+  }
+  #hint {
+    @extend #filter;
+    color:#555;
+    border: 2px solid #1fbad6;
+    background-color:#333;
+    z-index:0;
+  }
+  .find {
+    font-family: ff-clan-web-pro-wide,sans-serif;
+    background-color:#1fbad6;
+    padding:10px 20px;
+    text-decoration:none;
+    font-size:12px;
+    color: white;
+    position: absolute;
+    top: 140px;
+    right: 20px;
+  }
+}
+@media (max-width: 550px) {
+  #mobile-header {
+    display:block;
+  }
+  #logo {
+    display: none;
+  }
+  #menu {
+    top:50px;
+    left:-250px;
+    #filter {
+      top:10px;
+    }
+    ul {
+      top:65px;
+    }
+  }
+  #container {
+    left:0;
+  }
+}

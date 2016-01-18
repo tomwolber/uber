@@ -1,0 +1,88 @@
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>uber</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel='stylesheet' href='//d1a3f4spazzrp4.cloudfront.net/uber-fonts/2.0.1/fresh.css' />
+
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="/bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+    
+  </head>
+  <body>
+    <div id="mobile-header">SF MOVIE LOCATIONS BETA</div>
+    <div id="mobile-menu">
+      <span class="icon-menu" v-on:click="toggleMenu"></span>
+    </div>
+    <div id="menu" v-bind:class="{ 'slide': menuVisible }">
+      <div id="logo">SF MOVIE LOCATIONS BETA</div>
+      <input id="filter" v-model="term" @keydown.tab="tabComplete" @keyup.right="tabComplete" @keyup="listFilter($event)"  type="text" placeholder="TYPE TO FILTER LIST"/>
+      <input id="hint" v-model="hint" type="text" readonly />
+      <ul>
+        <li class="no-match" v-if="showEmpty">0 matches found</li>
+        <li v-for="location in locations">
+          <a class="locations" href="#" v-on:click="getLocations(location.title)">{{ location.title}}</a>
+        </li>
+      </ul>
+    </div>
+    <div id="container"></div>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/leaflet/dist/leaflet-src.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/vue/dist/vue.js"></script>
+    <script src="bower_components/async/lib/async.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <script src="http://www.mapquestapi.com/sdk/leaflet/v2.s/mq-map.js?key=aRLEAjbiPayNGXSgHdyVvGMdizXyW25l"></script>
+    <script src="http://www.mapquestapi.com/sdk/leaflet/v2.s/mq-geocoding.js?key=aRLEAjbiPayNGXSgHdyVvGMdizXyW25l"></script>
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+
+    <script>
+      // set view/model from main.js
+      uber.vm.init();
+
+      // init new map
+      uber.map = L.map('container', {'attributionControl': false, 'zoomControl': false}).setView([37.7833, -122.4166], 13);
+
+      // map layer for markers(pins)
+      uber.markers = new L.FeatureGroup();
+ 
+      // app layer to map
+      uber.map.addLayer(uber.markers);
+ 
+      // add map tile layer
+      L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        maxZoom: 18,
+        id: 'tomwolber.olfpe5d9', 
+        accessToken: 'pk.eyJ1IjoidG9td29sYmVyIiwiYSI6ImNpajU2anBqYjAwNHh1cmtyeXl0czhxNGIifQ.eqwWsJQ5F07qBP-0nMjvIA'
+      }).addTo(uber.map);
+
+      // Place zoom control
+      new L.Control.Zoom({ position: 'bottomright' }).addTo(uber.map);
+
+    </script>    
+  </body>
+</html>
