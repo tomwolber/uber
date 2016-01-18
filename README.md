@@ -32,7 +32,7 @@ Smaller libraries used:
 
 - Underscore.js for functional programming helpers
 - Async.js to keep API calls in sync
-- Leatlet.js to render map components
+- Leaflet.js to render map components
 - jQuery for XHR requests
 
 #### Trade-offs
