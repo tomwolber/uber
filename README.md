@@ -37,7 +37,7 @@ Smaller libraries used:
 
 #### Trade-offs
 
-Since there isn't a backend and rate limits on the geocoding API, rendering pins the first time for a movie is a little slow. If I had more time I would spin up a Node.js server with a cronjob that gets hits the movies API, adds geolocating data, and saves the whole thing to a MongoDB document. There are also a few bugs to work out.
+Since there isn't a backend and rate limits on the geocoding API, rendering pins the first time for a movie is a little slow. If I had more time I would spin up a Node.js server with a cronjob that hits the movies API, adds geolocating data, and saves the whole thing to a MongoDB document. There are also a few bugs to work out.
 
 Mobile devices are supported, but both the desktop and mobile UI's need to be polished
 
