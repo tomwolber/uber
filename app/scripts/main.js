@@ -115,7 +115,7 @@ uber.vm = new Vue({
                 if(!loc.coords) {
                   // if item doesn't have lat/longs (loc.coords), get them and add it to the object so we dont
                   // need to make api call next time
-                  $.get('http://maps.google.com/maps/api/geocode/json?sensor=false&address='+loc.locations+'san francisco ca').done(function(data){
+                  $.get('https://maps.google.com/maps/api/geocode/json?sensor=false&address='+loc.locations+'san francisco ca').done(function(data){
                     loc.coords = data.results[0].geometry.location;
                     callback(null);
                   });
